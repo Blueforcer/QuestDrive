@@ -1,0 +1,9 @@
+/* This relates to 'main_template.html' and 'remote_template' only! */
+
+ul, li 		{margin: 0; padding: 0;}
+body		{padding: 0; font-family: tahoma,arial,helvetica sans-serif;}
+h2		{color: #009bf5; margin: 0 0 20px 0;}
+input		{float: left; margin-right: 15px; font-family: tahoma,arial,helvetica sans-serif}
+
+#fontsize a 		{float: right; text-decoration: none; margin: 10px 10px 0 0; color: #fff; font-size: 60%;}
+#fontsize a:hover 	{color: #ffaa00;}

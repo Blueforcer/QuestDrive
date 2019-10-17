@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>QuestDrive</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<script type="text/javascript" src="functions.js"></script>
+		<style>
+	
+			a.fle {padding-left: 15px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFXRFWHRDcmVhdGlvbiBUaW1lAAffARgCOxEH9qpOAAAAB3RJTUUH3wEYAwA7NDwF5wAAAAlwSFlzAAALEgAACxIB0t1+/AAAATtJREFUeNqNUktywjAMlTNZlQvQDT1DW37FgUXK4TocKwGm5HOBcoCyzYRkkW+fP4mBmcxUHsuS8iS9yGZVVRHRfr+nYVkul7ZtK9vuow7nxIgxBlvppmksy4qi2Pf9+WI+ehohaCl0CyG5cJLWQEOXZck5D4Pwer2aDigG0OF47Buu147qk2WZ53kwgiBwXdfuO2CvVh+alIQiCGe7/bz8Xoqi+DmfDSXVgbotKWpukPHzePIyAeaR0s1g0EL4TK5b0Ql1XeP79+k0NNnNZg3MY4fFfMakULdJ+4LbIyXETmE01MFx+F0C7hs1ZtOpqnxTvBtaS+pNmLGKIcIgqag7zBT0beqEJEngRXE8RAlXBIxJSNMUFd7fXhUjujv0XwtMn5DnuaTEWtYaRsJXxIQLjEnAw/ra7egf8gfeWMsfEF8u4AAAAABJRU5ErkJggg==") left center no-repeat;}
+			a.fld {padding-left: 30px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAbFBMVEUAAAAIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfccIfcd92yEZAAAAI3RSTlMAAQMFCAkKEBUgJDEyNTg5QFBRZHF5f5GanqrDytfZ2unx94bY5eUAAABfSURBVBgZjcHbFoFQAEXRhVxCCl2UUPb//2OnHrTH8NKc/GuCOsJo9IqYafIpJlcCuYZASk8/MYFakswkKN/K3dH5JrdHu7fME/qDXAaPQm4Dl69MBazljkAp061YZADGchZXkwnYwgAAAABJRU5ErkJggg==") left center no-repeat;}
+			a.upd {padding-left: 30px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAM1BMVEUAAADwlwHwlwHwlwHwlwHwlwHwlwHwlwHwlwHwlwHwlwHwlwHwlwHwlwHwlwHwlwHwlwE2UCVqAAAAEHRSTlMAAwUNDhMXLjFedHV3uej1YaQqaQAAAEtJREFUGFeVzDsWgCAMRNHxhwQQZv+rtchJFGj0lbd4wNSurY9Qq9sorMeiuXi/5BpFIL0IYAQHI5BkKykgpNLen4jYfz5JPrPJ1A3zrwyQYZIjKwAAAABJRU5ErkJggg==") left center no-repeat;}
+			a.sdc {padding-left: 30px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAVCAYAAABPPm7SAAAAB3RJTUUH3wEZBTAiMyCAAwAAAAlwSFlzAAAOdAAADnQBaySz1gAAA8lJREFUeNqNVFtoHFUY/s6cMzN7SzbZe5PG3SYbQ1s0BiJVsT5UECPUl7bSSi9QRTCI+KQgfVEp9Mk38cUXX6rUB59FlL75YC9YSWs1adY0u8leut3sfXZmzvGf2baggniGn5lh5v/+7//+7xyWe/GDizrnB5SCBAOg8J9LKaUFA8b13ZnYGUrpiEJh+wUwfRKM4X8trwDDdKPvhJ6YTh0RTIheSFqIW01IpoFpzKsCSAp69hIYgSspoQYDMM6hGQLt1cbSbcgvhKLPrzV/x4daDTsdC7Dpp0AQzDSguj0fRDkOeDwGc/8MnNIWWKGAX4xRnCwEXxVwbMukH3YdewXReALSsmBvboGPjECkEpRswy5tw94qI/neMpxqDdWzy4jo0sPui/PnjjcK774P6/sfYE9loQhAtTtwCFRGR8EE99+5baP39Tewi1sw4UK4tqeIIQ7N70kf3XcQa9N74Ha7UEKHNE1PbjACGYpA2nANqkdJiTz46ZfRau1AXrnyrfjp59ufFaX+aV1FoGkCimIQiMJJZoBoFHDlv2fLBbB9F4m7m2v8u5uMRUz+xrgRgD7ow6QI79QRrpSIwQCDyAhNxAVpRWDOMBSBthrA+p3HSURXmAEDs7kkfXNRb3ZRrrehqHKwcAei10UrOwOXJuOP1kvWNEAIdHtWUGRzE+lqu49rvxWRTUfR7Q/gUnJqPAxd56hUK4i1mujHU7DG43DNABgJLWoV0NClVq23P/KAl48+i8ufv4XFvbuhCw0XPzmBqVQUPUf5EwiXNhC7dQPxX68hsXIdkeKfniOhdbv9gEGVONFa3azRbJkP9mQ+g4W5SZjkup7twlIMHcvxfcFoQkrjvp6C+pGSKFz48jIW8mlkM2M4vbSAMx9fwoXlJayX6qg1OsSK47H0GH68uob7bevBOBgBPFihgE66aGiQHldJjxMvPUXW7mNju4FDizOIhk3Mz05gZb2MaqML7RFE/tQfkbGRfDAxiUQ0gA6ZxXZdHNg/hZvrFR9gLpuE4MOUyv02Bo6E02ujvlmsCQ9DUk9er4cP7kOj1fOTPKD52V2IR0O4Vag+3JjQCUjj/GH5IRNPg9zEOJ6fz+Hs4UWMhEy8feQZXDr/Ot459py/vQVpYFCwf5wbwvc8YT+9d5Iol3FjVSJJHri308Hxc19hrXgPsdEgMRrgb4eOZyiPBJt7c0Nj7pRr094n63qA8CjaZFmPrqHTjflFHi3aXJIZcJXZJCs3V6Rmcr8PZQ8bIxGpOVKqU5Q2XTyQgSbCw6NqCEBiEJ92+S+kx8A3lyTlzwAAAABJRU5ErkJggg==") left center no-repeat;}
+			a.pho {padding-left: 30px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAhFBMVEUAAAAAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1AAo1B2cJ0tAAAAK3RSTlMAAQIGCAkLGB0fITxJTlZeYWNoaWxtc3R1eHyAgoWLjJi5usrT1dfe8/f9WWQx6AAAAHxJREFUGFdlz0cSwjAQRNGPRBTRYLKxTQ59//uxEELC/M1Uvc1Uw0WfXlN8sv4u8mrVkAn7TVNYZ6nMzmVZy3gZjg2YgXNOFpAdSWX6RjaXTr/SPl57UCyjALCT5lG6fbaSlAXp3J+1HxKkCMu+cvgTYrLATUkPA7RskoE3y64SI8BYCxYAAAAASUVORK5CYII=") left center no-repeat;}
+			a.usb {padding-left: 30px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAXCAIAAACNlFiOAAAAB3RJTUUH3wEZDTgFUODu2AAAAAlwSFlzAAALEgAACxIB0t1+/AAAAe5JREFUeNp9k8mOQVEQhrmO4bIg6ViIiMTGwsLCc3gHTyPxVhIewIKdICTmmGIerv4oXX11d7oWx3Fq+P+qv673fr97PB45/zGv1ysXI6GO45zP59vtphFawnpaIBDgJM2IbzweLxaLy+VCprvkI8KYYDD48bQHgiR0Op10Om3btvNlPAJ4f9pmsxkOh9Fo1O/3G+EjPne0QOkjAYJp3J2pW/4qgqC9EuRHXgeDQaVS4VIqlTKZTLlcvl6vxWIxl8t9T0mLYcwBoj6fD65EJJNJXsLh8Ol04vIaBvUYTrVaTaVSzEEyeSSCQQt4v99nHoVCgVovHagnbqkkbTBQvLhACIVCQtuC5W632263JMh8iBCNOClJ5vF4XC6Xq9WKGDOdTtvtdqvVIme/3wua4Cjv0Wi0Xq+JpnvT7Xbr9ToyTyaTWq12OBxoiTa4kPBQyhhwELvZbD54zmYz4HBDDEU5IUCx+XyO235aJBLhpA02yIK3SqHacVJVLqIaJnpbP5SWBBwwcVwmrp+rIVC4s9ksHCANSV1EAXlDUEskEuwv0QxdF0wQLPcuKWOWKp/Px+Nx3Rrd3z8Q8IHArNgUEHTbX/K7P0jtDFFZh16vpx+D9mB+I/Aai8VYW8qjhntQb1NSELpqNBqAsDVuNSTtExcNMVFLdNvwAAAAAElFTkSuQmCC") left center no-repeat;}
+			a.top {padding-left: 30px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAB3RJTUUH3wEcCDMzTbuQUwAAAAlwSFlzAAAK8AAACvABQqw0mAAAAV9JREFUeNrtl79KxEAQhzcaPE4bQQ5BLGxULAVfQUvhtNfAaaedWFtZ+QCWsbbzKQRfQXwDC/H8n7v4DdmDY1WSjBcWMQsfG7LZmd/s7OySIE1T47ONefVeC6gF/FZAHMeLMOtzBfag7UUAkbet832eV7V2As1BJEtPdwGTEMIt7EZR9FD5CuC8SXcC05DAK6zAsWYFNCk4hDV4HnrXhS3EbVcqAAfrdDvw5AxJHt/giG+WKxFgDZ+CpKDhDAcwAXNwxrczRe2GJcT2TJZ7yfk8HNgAhK4de7HiCtvVVsEC3SWMWwH3sEEV9Mra0p4DTTcQmNIY+tt3gW8BgYOqlakC17nMHWxCrR31xDvoDEX/AY+qSNwypMTCAsL6lNy7M69h8lORMC/JWwG54zdNdtH82HBYNljxdQXneQJasGQFjOqnYbBnWt+pctu1yY7d/ogFyGa9+TJQ/xnVAv69gE/rMlqxI/V4nQAAAABJRU5ErkJggg==") left center no-repeat;}
+			a.mov {padding-left: 30px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAVFBMVEUAAAAAff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff8Aff+gdw7zAAAAG3RSTlMAAQIDBjpWXl9jcHN1e4WJoqqrt7m609fa8/2QLbwAAAAAaklEQVQYV3XPVw6AIBBF0Uex915m//uUojKSeD8gnAABYKW7M4OPtJ/3qqkiyZHWsSApuEzuMskE2uQWZhAmdinp1m7vATU94p8j1EJfkTPFMgQ5/Sk5vlJa6gDZP4LQj2zEOuwvhGYZuACk7guil5/P1QAAAABJRU5ErkJggg==") left center no-repeat;}
+			#fontsize a {float: right; text-decoration: none; margin: 10px 10px 0 0; color: #fff; font-size: 60%;}
+			#fontsize a:hover {color: #ffaa00;}
+		</style>
+		<script type="text/javascript">
+		function pageup(e) {
+			var uagent = navigator.userAgent.toUpperCase();
+			if (uagent.indexOf("MSIE") >=0) { pos = event.y; }
+			else { pos = e.pageY; } moveObject(pos);
+			}
+	
+		function moveObject(position) {
+			move = position / 15;
+			point = parseInt(position - move);
+			scrollTo(0,point);
+			if (point > 0) { setTimeout("moveObject(point)",10); }
+		  }
+		  
+		var size=1;
+		function fontsize(size){
+			if(size==1){
+			document.body.style.fontSize='80%';
+			document.body.style.lineHeight='90%';
+			}else if(size==2){
+			document.body.style.fontSize='100%';
+			document.body.style.lineHeight='110%';
+			}else if(size==3){
+			document.body.style.fontSize='120%';
+			document.body.style.lineHeight='130%';
+			}
+		}
+		
+		function askDelete(url) {
+			var dfile = url.substring(url.lastIndexOf('%2F') + 3);
+			var what = "folder";
+			if (dfile.indexOf(".") > -1) { what = "file";}
+			if (confirm("Delete this " + what + "?\n" + dfile) == true) {
+				location.href = url;
+			} else {
+				return;
+			}
+		}
+		
+		function askNewFolder(url) {
+			var fld = prompt("Enter Folder Name", "NewFolder");
+			if (fld != null) {
+				location.href = url + "/" + fld;
+			} else {
+				return;
+			}	
+		}
+		
+		function validateUpload() {
+			var x = document.forms["upform"]["upfile"].value;
+			if (x == null || x == "") {
+				alert("Please pick a file to upload.");
+				return false;
+			}
+		}
+
+		function validateErrMsg(x) {
+			if (x == "1") {
+				alert("This folder is not empty");
+				return false;
+			}
+		}			
+		validateErrMsg("$ERRMSG$");
+		</script>	
+	</head>
+	<body style="padding: 0; font-family: tahoma,arial,helvetica sans-serif;">
+
+			<nav  class="navbar navbar-expand-lg navbar-light bg-light">
+					<a class="navbar-brand" href="#">
+							<img src="/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+							QuestDrive
+						  </a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNav">
+					  <ul class="navbar-nav">
+						<li class="nav-item">
+						  <a class="nav-link" href="/">Home</a>
+						</li>
+						<li class="nav-item active" >
+						  <a class="nav-link" href="/list/">File Browser<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link" href="/list/storage/emulated/0/Oculus/VideoShots/">VideoShots</a>
+						</li>
+						<li class="nav-item">
+								<a class="nav-link" href="/list/storage/emulated/0/Oculus/Screenshots/">Screenshot</a>
+							  </li>
+					  </ul>
+					</div>
+				  </nav>
+
+
+		<br clear="all">
+			$LIST$
+		<hr>
+		
+		
+
+		<hr>
+	
+		<a class="top" href="#" onclick="pageup(event);return false;"></a>
+		<script>
+				$('#inputGroupFile02').on('change',function(){
+					//get the file name
+					var fileName = $(this).val();
+					//replace the "Choose a file" label
+					$(this).next('.custom-file-label').html(fileName);
+				})
+			</script>
+	</body>
+</html>
